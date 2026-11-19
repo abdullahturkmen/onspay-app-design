@@ -244,6 +244,23 @@
   background: var(--accent-line);
 }
 
+.screen-thumb.thumb-brand {
+  background: var(--accent);
+}
+
+.screen-thumb.thumb-brand::before {
+  top: 13px;
+  left: 9px;
+  width: 9px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.screen-thumb.thumb-brand::after {
+  display: none;
+}
+
 .screen-thumb.thumb-dark {
   background: var(--surface-dark);
 }

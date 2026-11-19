@@ -1,3 +1,4 @@
+import splash from "./splash.js";
 import welcome from "./welcome.js";
 import login from "./login.js";
 import home from "./home.js";
@@ -10,4 +11,4 @@ import transactions from "./transactions.js";
 import profile from "./profile.js";
 
 // Sıra, hem sol menüyü hem de ileri/geri gezinmeyi belirler.
-export const screens = [welcome, login, home, transfer, confirm, success, cards, payments, transactions, profile];
+export const screens = [splash, welcome, login, home, transfer, confirm, success, cards, payments, transactions, profile];

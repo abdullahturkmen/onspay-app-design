@@ -139,6 +139,39 @@
   background: #202127;
 }
 
+/* Tam renkli ekranlarda (ör. splash) üst ve alt çubuklar ekranın rengini alır */
+.device-screen[data-chrome="accent"] .phone-status-bar,
+.device-screen[data-chrome="accent"] .phone-home-indicator {
+  background: var(--accent);
+}
+
+/* Ekran geçişlerinde telefonun içi tek parça olarak solar (bkz. softExit) */
+.device-screen {
+  view-transition-name: device-screen;
+}
+
+::view-transition-old(device-screen) {
+  animation: 700ms ease-in-out both screen-fade-out;
+}
+
+::view-transition-new(device-screen) {
+  animation: 700ms ease-in-out both screen-fade-in;
+}
+
+@keyframes screen-fade-out {
+  to {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes screen-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
 .stage-caption {
   display: flex;
   align-items: center;

@@ -10,7 +10,10 @@ function createPrototype() {
   const deviceStage = document.querySelector("#device-stage");
   const toast = document.querySelector("#toast");
   let currentIndex = 0;
+  let hasRendered = false;
   let toastTimer;
+  let autoNextTimer;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function renderScreenList() {
     const scrollTop = screenList.scrollTop;
@@ -44,11 +47,30 @@ function createPrototype() {
     else if (item.right > list.right) screenList.scrollLeft += item.right - list.right;
   }
 
+  // softExit tanımlı ekranlardan (ör. splash) çıkarken tarayıcı eski ekranı yeni ekrana yumuşakça soldurur
   function renderScreen(index, updateHistory = true) {
+    window.clearTimeout(autoNextTimer);
+    const leavingScreen = hasRendered ? screens[currentIndex] : null;
+    hasRendered = true;
+
+    if (leavingScreen?.softExit && document.startViewTransition && !prefersReducedMotion.matches) {
+      document.startViewTransition(() => applyScreen(index, updateHistory));
+    } else {
+      applyScreen(index, updateHistory);
+    }
+  }
+
+  function applyScreen(index, updateHistory) {
     currentIndex = (index + screens.length) % screens.length;
     const screen = screens[currentIndex];
 
+    // autoNext tanımlı ekranlar (ör. splash) süre dolunca kendiliğinden bir sonrakine geçer
+    if (screen.autoNext) {
+      autoNextTimer = window.setTimeout(() => goToScreen(screen.autoNext.to), screen.autoNext.after);
+    }
+
     appScreen.innerHTML = screen.content;
+    document.querySelector(".device-screen").dataset.chrome = screen.chrome ?? "default";
     document.querySelector("#current-screen-title").textContent = screen.title;
     document.querySelector("#detail-index").textContent = `${pad(currentIndex + 1)} / ${pad(screens.length)}`;
     document.querySelector("#detail-title").textContent = screen.detailTitle;
