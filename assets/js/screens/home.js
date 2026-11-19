@@ -24,7 +24,10 @@ export default {
         <div class="balance-label">Toplam bakiyen</div>
         <div class="balance-amount">₺ 24.850,00</div>
         <div class="balance-footer">
-          <span>••••  4821</span>
+          <span class="balance-number">
+            <span>2345 2345345 4821</span>
+            <button class="copy-button" data-copy="234523453454821" data-copy-message="Kart numarası kopyalandı." type="button" aria-label="Kart numarasını kopyala">${icon("copy")}</button>
+          </span>
           <span class="balance-change">↗ %12,4 bu ay</span>
         </div>
       </div>

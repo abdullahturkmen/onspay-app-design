@@ -138,7 +138,25 @@ function createPrototype() {
 
     const toastButton = event.target.closest("[data-toast]");
     if (toastButton) showToast(toastButton.dataset.toast);
+
+    const copyButton = event.target.closest("[data-copy]");
+    if (copyButton) copyToClipboard(copyButton);
   });
+
+  // Panoya kopyalar; başarılı olursa ikon kısa süre onay işaretine döner
+  async function copyToClipboard(button) {
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+    } catch {
+      showToast("Kopyalanamadı, lütfen elle seç.");
+      return;
+    }
+    showToast(button.dataset.copyMessage ?? "Kopyalandı.");
+    button.innerHTML = icon("check");
+    window.setTimeout(() => {
+      if (button.isConnected) button.innerHTML = icon("copy");
+    }, 1500);
+  }
 
   document.querySelector("#previous-button").addEventListener("click", () => {
     if (currentIndex > 0) renderScreen(currentIndex - 1);
