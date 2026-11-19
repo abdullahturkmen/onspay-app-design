@@ -1,7 +1,103 @@
-/* Para gönderme, kartlar ve ödemeler ekranları */
+/* Para yükleme, para gönderme, kartlar ve ödemeler ekranları */
 
 .screen-flow .section-heading {
   margin-top: 16px;
+}
+
+.topup-intro {
+  margin: 12px 2px 0;
+  color: var(--text-3);
+  font-size: 7.5px;
+  line-height: 1.6;
+}
+
+.code-card {
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  padding: 13px 14px;
+  border: 1px solid var(--accent-line);
+  border-radius: 14px;
+  background: var(--accent-soft);
+}
+
+.code-card .detail-label {
+  color: var(--accent-dark);
+}
+
+.code-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code-value strong {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.code-hint {
+  color: var(--text-3);
+  font-size: 6.5px;
+}
+
+.detail-card {
+  margin-top: 10px;
+  padding: 2px 12px;
+}
+
+.detail-row {
+  display: grid;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.detail-row:last-child {
+  border-bottom: 0;
+}
+
+.detail-label {
+  color: var(--text-3);
+  font-size: 6.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.detail-value strong {
+  color: var(--ink);
+  font-size: 8px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Açık yüzeylerde kullanılan kopyala düğmesi (koyu kart üzerindeki varyant screens.css içinde) */
+.copy-button.is-soft {
+  --icon-size: 11px;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.copy-button.is-soft:hover {
+  background: var(--accent-line);
+  color: var(--ink);
+}
+
+.code-card .copy-button.is-soft {
+  background: var(--surface);
 }
 
 .recipient-row {

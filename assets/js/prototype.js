@@ -143,7 +143,7 @@ function createPrototype() {
     if (copyButton) copyToClipboard(copyButton);
   });
 
-  // Panoya kopyalar; başarılı olursa ikon kısa süre onay işaretine döner
+  // Panoya kopyalar; başarılı olursa düğmedeki ikon kısa süre onay işaretine döner (yazı korunur)
   async function copyToClipboard(button) {
     try {
       await navigator.clipboard.writeText(button.dataset.copy);
@@ -152,9 +152,13 @@ function createPrototype() {
       return;
     }
     showToast(button.dataset.copyMessage ?? "Kopyalandı.");
-    button.innerHTML = icon("check");
+
+    const copyIcon = button.querySelector(".icon");
+    if (!copyIcon) return;
+    const original = copyIcon.outerHTML;
+    copyIcon.outerHTML = icon("check");
     window.setTimeout(() => {
-      if (button.isConnected) button.innerHTML = icon("copy");
+      if (button.isConnected) button.querySelector(".icon").outerHTML = original;
     }, 1500);
   }
 

@@ -33,7 +33,7 @@ export default {
       </div>
       <div class="quick-actions">
         <button class="quick-action" data-go="transfer" type="button"><span class="action-icon">${icon("send")}</span><span>Para gönder</span></button>
-        <button class="quick-action" data-toast="${comingSoonMessage}" type="button"><span class="action-icon">${icon("plus")}</span><span>Para ekle</span></button>
+        <button class="quick-action" data-go="topup" type="button"><span class="action-icon">${icon("plus")}</span><span>Para ekle</span></button>
         <button class="quick-action" data-go="payments" type="button"><span class="action-icon">${icon("receipt")}</span><span>Ödemeler</span></button>
         <button class="quick-action" data-toast="${comingSoonMessage}" type="button"><span class="action-icon">${icon("qr")}</span><span>QR öde</span></button>
       </div>
