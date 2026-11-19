@@ -4,6 +4,22 @@ import { screens } from "./screens/index.js";
 
 const pad = (number) => String(number).padStart(2, "0");
 
+const THEME_STORAGE_KEY = "onspay-theme";
+const isTheme = (value) => value === "light" || value === "dark";
+
+// Öncelik: bağlantıdaki ?theme=, sonra kayıtlı tercih, sonra cihazın tercihi
+function getInitialTheme() {
+  const fromUrl = new URLSearchParams(window.location.search).get("theme");
+  if (isTheme(fromUrl)) return fromUrl;
+  try {
+    const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+    if (isTheme(saved)) return saved;
+  } catch {
+    // Depolamaya erişilemiyorsa cihaz tercihine düşülür
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 function createPrototype() {
   const screenList = document.querySelector("#screen-list");
   const appScreen = document.querySelector("#app-screen");
@@ -130,6 +146,29 @@ function createPrototype() {
 
   document.querySelector("#restart-button").addEventListener("click", () => renderScreen(0));
 
+  const themeButton = document.querySelector("#theme-button");
+  const deviceScreen = document.querySelector(".device-screen");
+
+  // Tema yalnızca telefonun içini etkiler; seçim bağlantıya (?theme=) ve tarayıcıya kaydedilir
+  function applyTheme(theme) {
+    deviceScreen.dataset.theme = theme;
+    themeButton.setAttribute("aria-checked", String(theme === "dark"));
+    themeButton.querySelector(".theme-switch-knob").innerHTML = icon(theme === "dark" ? "moon" : "sun");
+    const url = new URL(window.location.href);
+    url.searchParams.set("theme", theme);
+    window.history.replaceState({}, "", url);
+  }
+
+  themeButton.addEventListener("click", () => {
+    const next = deviceScreen.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, next);
+    } catch {
+      // Depolama kapalıysa tercih yalnızca bu oturumda geçerli olur
+    }
+  });
+
   document.querySelector("#fullscreen-button").addEventListener("click", () => {
     const isFullscreen = deviceStage.classList.toggle("is-fullscreen");
     document.querySelector("#fullscreen-button").setAttribute(
@@ -156,6 +195,7 @@ function createPrototype() {
 
   const initialScreen = new URLSearchParams(window.location.search).get("screen");
   const initialIndex = screens.findIndex((screen) => screen.id === initialScreen);
+  applyTheme(getInitialTheme());
   renderScreen(initialIndex === -1 ? 0 : initialIndex, false);
   fitDeviceToStage(deviceStage, document.querySelector("#device"));
 }

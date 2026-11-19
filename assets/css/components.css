@@ -11,12 +11,41 @@
   stroke-linejoin: round;
 }
 
+/*
+  Logo: açık temada logo.svg olduğu gibi kullanılır. Koyu temada yazı beyaza çevrilir,
+  turuncu O ise O.svg ile üstüne yerleştirilir (yazı kısmı O'nun alanını hariç tutacak şekilde kırpılır).
+*/
+.app-logo {
+  position: relative;
+  display: block;
+}
+
+.app-logo img {
+  display: block;
+}
+
+.app-logo-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none !important;
+}
+
+.device-screen[data-theme="dark"] .app-logo-full {
+  filter: brightness(0) invert(1);
+  clip-path: inset(0 0 0 27.3%);
+}
+
+.device-screen[data-theme="dark"] .app-logo-mark {
+  display: block !important;
+}
+
 .screen-tab,
 .screen-flow {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fafafa;
+  background: var(--app-bg);
 }
 
 .screen-tab {
@@ -76,7 +105,7 @@
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid #ececf0;
+  border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--surface);
   color: var(--ink);
@@ -100,7 +129,7 @@
 }
 
 .surface-card {
-  border: 1px solid #eeeef2;
+  border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--surface);
 }
@@ -135,7 +164,7 @@
 }
 
 .person-avatar.tone-dark {
-  --tone: var(--brand-black);
+  --tone: var(--avatar-dark);
   color: #fff;
 }
 
@@ -159,7 +188,7 @@
   justify-content: space-around;
   margin: auto -17px 0;
   padding: 9px 7px 8px;
-  border-top: 1px solid #efeff3;
+  border-top: 1px solid var(--line-soft);
   background: var(--surface);
 }
 
@@ -171,7 +200,7 @@
   padding: 0 6px;
   border: 0;
   background: transparent;
-  color: #a0a0aa;
+  color: var(--text-4);
   font-size: 6.5px;
   cursor: pointer;
 }
@@ -193,23 +222,23 @@
 
 .chip {
   padding: 6px 10px;
-  border: 1px solid #e8e8ed;
+  border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
-  color: #686977;
+  color: var(--text-3);
   font-size: 7px;
   font-weight: 600;
 }
 
 .chip.is-active {
-  border-color: var(--brand-black);
-  background: var(--brand-black);
-  color: #fff;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--surface);
 }
 
 .date-label {
   margin: 14px 2px 6px;
-  color: #9a9aa5;
+  color: var(--text-3);
   font-size: 6.5px;
   font-weight: 500;
   letter-spacing: 0.8px;
@@ -220,13 +249,13 @@
   align-items: center;
   gap: 9px;
   padding: 9px 10px;
-  border-bottom: 1px solid #f0f0f3;
+  border-bottom: 1px solid var(--line-soft);
 }
 
 button.list-row {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #f0f0f3;
+  border-bottom: 1px solid var(--line-soft);
   background: transparent;
   color: inherit;
   text-align: left;
@@ -260,28 +289,28 @@ button.list-row {
 }
 
 .row-copy strong {
-  color: #34343d;
+  color: var(--text-2);
   font-size: 7.5px;
   font-weight: 600;
 }
 
 .row-copy span {
   margin-top: 3px;
-  color: #9a9aa5;
+  color: var(--text-3);
   font-size: 6.5px;
 }
 
 .row-trailing {
   --icon-size: 10px;
-  color: #a0a0aa;
+  color: var(--text-4);
 }
 
 .small-button {
   padding: 5px 10px;
   border: 0;
   border-radius: 999px;
-  background: var(--brand-black);
-  color: #fff;
+  background: var(--ink);
+  color: var(--surface);
   font-size: 6.5px;
   font-weight: 600;
   cursor: pointer;
@@ -293,7 +322,7 @@ button.list-row {
   height: 14px;
   flex: none;
   border-radius: 999px;
-  background: #d8d8de;
+  background: var(--control-off);
 }
 
 .switch::after {

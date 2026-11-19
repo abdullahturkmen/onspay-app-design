@@ -14,7 +14,7 @@
   display: grid;
   justify-items: center;
   gap: 5px;
-  color: #7d7e88;
+  color: var(--text-3);
   font-size: 6.5px;
   font-weight: 600;
 }
@@ -30,14 +30,14 @@
 }
 
 .recipient.is-selected .person-avatar {
-  box-shadow: 0 0 0 2px #fafafa, 0 0 0 3.5px var(--accent);
+  box-shadow: 0 0 0 2px var(--app-bg), 0 0 0 3.5px var(--accent);
 }
 
 .recipient .person-avatar.is-new {
   --icon-size: 14px;
-  border: 1px dashed #c9c9d1;
+  border: 1px dashed var(--text-4);
   background: var(--surface);
-  color: #7d7e88;
+  color: var(--text-3);
 }
 
 .amount-block {
@@ -46,13 +46,13 @@
   gap: 6px;
   margin: 14px 0;
   padding: 18px 12px;
-  border: 1px solid #eeeef2;
+  border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
 }
 
 .amount-label {
-  color: #9a9aa5;
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -66,7 +66,7 @@
 
 .amount-value small,
 .confirm-amount small {
-  color: #a4a4ad;
+  color: var(--text-4);
   font-size: 16px;
   letter-spacing: -0.4px;
 }
@@ -90,8 +90,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid #f0f0f3;
-  color: #8d8d98;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .info-row strong.is-free {
-  color: #1f8c62;
+  color: var(--positive-text);
 }
 
 .confirm-hero {
@@ -134,7 +134,7 @@
 }
 
 .confirm-hero > .iban {
-  color: #9a9aa5;
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -156,7 +156,7 @@
   padding: 9px 10px;
   border-radius: 9px;
   background: var(--accent-soft);
-  color: #4a4a52;
+  color: var(--text-2);
   font-size: 6.5px;
   line-height: 1.5;
 }
@@ -194,8 +194,8 @@
   overflow: hidden;
   border-radius: 14px;
   color: #fff;
-  background: linear-gradient(135deg, #2b2b2b, #000 70%);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+  background: linear-gradient(135deg, var(--card-start), var(--card-end) 70%);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22), inset 0 0 0 1px var(--card-edge);
 }
 
 .pay-card::after {
@@ -260,7 +260,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  color: #8d8d98;
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .limit-head small {
-  color: #a4a4ad;
+  color: var(--text-4);
   font-size: 7px;
   font-weight: 600;
 }
@@ -280,7 +280,7 @@
   margin: 9px 0 7px;
   overflow: hidden;
   border-radius: 999px;
-  background: #f0f0f3;
+  background: var(--sunk);
 }
 
 .progress span {
@@ -292,7 +292,7 @@
 }
 
 .limit-foot {
-  color: #9a9aa5;
+  color: var(--text-3);
   font-size: 6.5px;
 }
 
@@ -345,10 +345,10 @@
   justify-items: center;
   gap: 6px;
   padding: 11px 4px;
-  border: 1px solid #eeeef2;
+  border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--surface);
-  color: #454550;
+  color: var(--text-2);
   font-size: 7px;
   font-weight: 600;
   cursor: pointer;
@@ -374,8 +374,8 @@
   min-width: 14px;
   padding: 2px 5px;
   border-radius: 999px;
-  background: var(--brand-black);
-  color: #fff !important;
+  background: var(--ink);
+  color: var(--surface) !important;
   text-align: center;
 }
 

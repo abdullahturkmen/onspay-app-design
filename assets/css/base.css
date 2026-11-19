@@ -18,6 +18,22 @@
   --accent-line: color-mix(in srgb, var(--accent) 24%, var(--surface));
   --accent-light: color-mix(in srgb, var(--accent) 45%, var(--surface));
   --on-accent: var(--brand-black);
+
+  /* Telefon içi tema değişkenleri (açık değerler). Koyu değerler theme.css içinde. */
+  --app-bg: #fafafa;
+  --text-2: #454550;
+  --text-3: #7d7e88;
+  --text-4: #a1a1ab;
+  --line-soft: #f0f0f3;
+  --sunk: #f0f0f3;
+  --control-off: #d8d8de;
+  --avatar-dark: var(--brand-black);
+  --positive-text: #1f8c62;
+  --positive-bg: #e6f7ef;
+  --positive-ring: #d5f8e5;
+  --card-start: #2b2b2b;
+  --card-end: #000;
+  --card-edge: transparent;
 }
 
 * {

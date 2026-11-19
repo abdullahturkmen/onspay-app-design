@@ -1,6 +1,11 @@
 import { icon } from "./icons.js";
 
-const logo = `<img src="assets/img/logo.svg" width="109" height="32" alt="Onspay" />`;
+// Koyu temada yazı kısmı beyaza çevrilir, turuncu O üstüne konur (bkz. components.css)
+const logo = `
+  <span class="app-logo">
+    <img class="app-logo-full" src="assets/img/logo.svg" width="109" height="32" alt="Onspay" />
+    <img class="app-logo-mark" src="assets/img/O.svg" width="29" height="32" alt="" aria-hidden="true" />
+  </span>`;
 
 const tabs = [
   { id: "home", label: "Ana sayfa", icon: "home" },
@@ -10,6 +15,8 @@ const tabs = [
 ];
 
 export const comingSoonMessage = "Bu ekran bir sonraki tasarım turunda eklenecek.";
+
+export const brandLogo = logo;
 
 export function brandHeader(trailing = "") {
   return `

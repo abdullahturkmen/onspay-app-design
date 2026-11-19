@@ -1,0 +1,31 @@
+/*
+  Koyu tema yalnızca telefonun içini etkiler (.device-screen). Sunum arayüzü açık kalır.
+  Değişken adları base.css ile aynıdır; burada sadece değerleri değişir.
+*/
+
+.device-screen[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg: #0d0d0f;
+  --surface: #18181b;
+  --ink: #f4f4f5;
+  --text-2: #d4d4d8;
+  --text-3: #a1a1aa;
+  --text-4: #71717a;
+  --line: #2a2a2f;
+  --line-soft: #232327;
+  --sunk: #2a2a2f;
+  --control-off: #3a3a40;
+  --avatar-dark: #3a3a40;
+  --positive-text: #4cc79a;
+  --positive-bg: #11261d;
+  --positive-ring: #1b3a2b;
+  --card-start: #36363c;
+  --card-end: #0f0f11;
+  --card-edge: rgba(255, 255, 255, 0.1);
+
+  /* Turuncu aynı kalır; yüzeye göre hesaplanan türevleri koyu zemin için yeniden üretilir */
+  --accent-dark: color-mix(in srgb, var(--accent) 75%, #fff);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--surface));
+  --accent-line: color-mix(in srgb, var(--accent) 32%, var(--surface));
+  --accent-light: color-mix(in srgb, var(--accent) 45%, var(--surface));
+}

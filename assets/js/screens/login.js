@@ -1,3 +1,5 @@
+import { brandHeader } from "../components/ui.js";
+
 export default {
   id: "login",
   group: "Başlangıç",
@@ -12,10 +14,7 @@ export default {
   icon: "lock",
   content: `
     <section class="screen-login">
-      <div class="app-topbar">
-        <div class="mini-brand"><img src="assets/img/logo.svg" width="109" height="32" alt="Onspay" /></div>
-        <span class="welcome-tag" style="color:#a5a3af">Güvenli alan</span>
-      </div>
+      ${brandHeader(`<span class="welcome-tag" style="color:var(--text-4)">Güvenli alan</span>`)}
       <div class="login-heading">
         <p class="welcome-kicker">Tekrar hoş geldin</p>
         <h2>Hesabına giriş yap</h2>

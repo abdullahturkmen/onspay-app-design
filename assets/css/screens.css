@@ -7,11 +7,12 @@
   flex-direction: column;
 }
 
+/* Hoş geldin ekranı temadan bağımsız olarak koyu tasarlanmıştır */
 .screen-welcome {
   justify-content: space-between;
   padding: 14px 21px 22px;
   overflow: hidden;
-  color: var(--surface);
+  color: var(--brand-white);
   background: var(--surface-dark);
 }
 
@@ -85,7 +86,7 @@
   border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 14px;
   color: var(--on-accent);
-  background: linear-gradient(135deg, var(--accent-light), var(--accent) 70%);
+  background: linear-gradient(135deg, #ffb59c, #ff5a23 70%);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.34);
   transform: rotate(-9deg);
 }
@@ -133,8 +134,8 @@
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 50%;
-  color: var(--accent-dark);
-  background: var(--accent-soft);
+  color: #9e3816;
+  background: #fff2ed;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
   font-size: 16px;
   font-weight: 600;
@@ -157,7 +158,7 @@
 
 .sparkle {
   position: absolute;
-  color: var(--accent-light);
+  color: #ffb59c;
   font-size: 17px;
 }
 
@@ -178,7 +179,7 @@
 
 .welcome-kicker {
   margin: 0 0 8px;
-  color: var(--accent-light);
+  color: #ffb59c;
   font-size: 7px;
   font-weight: 600;
   letter-spacing: 1.2px;
@@ -195,7 +196,7 @@
 }
 
 .welcome-copy h2 span {
-  color: var(--accent-light);
+  color: #ffb59c;
 }
 
 .welcome-copy > p {
@@ -241,12 +242,12 @@
 }
 
 .welcome-footer strong {
-  color: var(--accent-light);
+  color: #ffb59c;
 }
 
 .screen-login {
   padding: 22px 22px 21px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .login-heading {
@@ -259,7 +260,7 @@
 
 .login-heading h2 {
   margin: 0;
-  color: #292637;
+  color: var(--ink);
   font-size: 23px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -267,7 +268,7 @@
 
 .login-heading p {
   margin: 8px 0 0;
-  color: #92939c;
+  color: var(--text-3);
   font-size: 9px;
 }
 
@@ -280,7 +281,7 @@
 .field-label {
   display: block;
   margin-bottom: 6px;
-  color: #484954;
+  color: var(--text-2);
   font-size: 8px;
   font-weight: 500;
 }
@@ -291,10 +292,10 @@
   align-items: center;
   gap: 8px;
   padding: 0 10px;
-  border: 1px solid #e8e8ed;
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
-  color: #aaaab3;
+  background: var(--surface);
+  color: var(--text-4);
 }
 
 .input-shell svg {
@@ -309,7 +310,7 @@
 }
 
 .input-shell span {
-  color: #b5b6be;
+  color: var(--text-4);
   font-size: 8px;
 }
 
@@ -318,7 +319,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: -3px;
-  color: #797985;
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -353,7 +354,7 @@
   align-items: center;
   gap: 9px;
   margin: 16px 0 13px;
-  color: #b0b0b9;
+  color: var(--text-4);
   font-size: 7px;
 }
 
@@ -361,15 +362,15 @@
 .or-divider::after {
   height: 1px;
   flex: 1;
-  background: #efeff2;
+  background: var(--line);
   content: "";
 }
 
 .secondary-button {
   min-height: 36px;
-  border: 1px solid #e8e8ed;
-  color: #454650;
-  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--text-2);
+  background: var(--surface);
   font-size: 8px;
 }
 
@@ -382,7 +383,7 @@
 
 .login-bottom {
   margin-top: auto;
-  color: #9b9ba4;
+  color: var(--text-4);
   font-size: 7px;
   text-align: center;
 }
@@ -398,7 +399,7 @@
 }
 
 .screen-home {
-  background: #fafafa;
+  background: var(--app-bg);
 }
 
 .app-topbar {
@@ -410,7 +411,7 @@
   height: 24px;
   display: grid;
   place-items: center;
-  border: 2px solid #fff;
+  border: 2px solid var(--surface);
   border-radius: 50%;
   color: var(--accent-dark);
   background: var(--accent-soft);
@@ -425,13 +426,13 @@
 
 .greeting p {
   margin: 0 0 3px;
-  color: #9797a3;
+  color: var(--text-3);
   font-size: 8px;
 }
 
 .greeting h2 {
   margin: 0;
-  color: #282636;
+  color: var(--ink);
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.6px;
@@ -443,9 +444,9 @@
   margin-top: 15px;
   padding: 15px;
   border-radius: 13px;
-  color: var(--surface);
-  background: linear-gradient(135deg, var(--surface-dark), var(--brand-black));
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  color: var(--brand-white);
+  background: linear-gradient(135deg, var(--card-start), var(--card-end));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18), inset 0 0 0 1px var(--card-edge);
 }
 
 .balance-card::after {
@@ -463,7 +464,7 @@
 .balance-label {
   position: relative;
   z-index: 1;
-  color: var(--accent-light);
+  color: #ffb59c;
   font-size: 7px;
 }
 
@@ -511,7 +512,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #686977;
+  color: var(--text-3);
   font-size: 6px;
   cursor: pointer;
 }
@@ -541,7 +542,7 @@
 }
 
 .section-heading strong {
-  color: #373642;
+  color: var(--ink);
   font-size: 9px;
   font-weight: 600;
 }
@@ -562,7 +563,7 @@
   align-items: center;
   gap: 8px;
   padding: 7px 0;
-  border-bottom: 1px solid #efeff4;
+  border-bottom: 1px solid var(--line-soft);
 }
 
 .transaction-icon {
@@ -577,8 +578,8 @@
 }
 
 .transaction-icon.is-incoming {
-  color: #3ba37a;
-  background: #e6f7ef;
+  color: var(--positive-text);
+  background: var(--positive-bg);
 }
 
 .transaction-copy {
@@ -591,31 +592,31 @@
 }
 
 .transaction-copy strong {
-  color: #454550;
+  color: var(--text-2);
   font-size: 7px;
   font-weight: 600;
 }
 
 .transaction-copy span {
   margin-top: 3px;
-  color: #a1a1ab;
+  color: var(--text-4);
   font-size: 6px;
 }
 
 .transaction-amount {
-  color: #41414a;
+  color: var(--text-2);
   font-size: 7px;
   font-weight: 600;
 }
 
 .transaction-amount.positive {
-  color: #35a878;
+  color: var(--positive-text);
 }
 
 .screen-success {
   align-items: center;
   padding: 19px 21px 22px;
-  background: #fff;
+  background: var(--surface);
   text-align: center;
 }
 
@@ -624,7 +625,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #9b9ba4;
+  color: var(--text-4);
   font-size: 8px;
 }
 
@@ -632,7 +633,7 @@
   padding: 3px;
   border: 0;
   background: transparent;
-  color: #7d7e88;
+  color: var(--text-3);
   font-size: 17px;
   cursor: pointer;
 }
@@ -644,7 +645,7 @@
   place-items: center;
   margin: 55px 0 20px;
   border-radius: 50%;
-  background: #edfff5;
+  background: var(--positive-bg);
 }
 
 .success-illustration span {
@@ -652,7 +653,7 @@
   height: 63px;
   display: grid;
   place-items: center;
-  border: 7px solid #d5f8e5;
+  border: 7px solid var(--positive-ring);
   border-radius: 50%;
   color: #fff;
   background: #4bc78b;
@@ -663,7 +664,7 @@
 
 .success-heading {
   margin: 0;
-  color: #29283a;
+  color: var(--ink);
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.6px;
@@ -672,7 +673,7 @@
 .success-description {
   max-width: 198px;
   margin: 8px 0 0;
-  color: #92939c;
+  color: var(--text-3);
   font-size: 8px;
   line-height: 1.7;
 }
@@ -681,9 +682,9 @@
   width: 100%;
   margin-top: 24px;
   padding: 14px 13px;
-  border: 1px solid #eff0f2;
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: #fcfcfd;
+  background: var(--app-bg);
   text-align: left;
 }
 
@@ -692,7 +693,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 11px;
-  color: #9a9ba4;
+  color: var(--text-3);
   font-size: 7px;
 }
 
@@ -701,14 +702,14 @@
 }
 
 .receipt-row strong {
-  color: #4a4b54;
+  color: var(--text-2);
   font-size: 7px;
   font-weight: 600;
 }
 
 .receipt-row.total {
   padding-top: 10px;
-  border-top: 1px dashed #e6e6eb;
+  border-top: 1px dashed var(--line);
 }
 
 .receipt-row.total strong {
