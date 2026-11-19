@@ -86,8 +86,8 @@ export default {
         <button class="story-tap story-tap-next" type="button" aria-label="Sonraki"></button>
       </div>
       <div class="story-actions">
-        <button class="primary-button welcome-cta" data-go="login" type="button">Hemen başla <span aria-hidden="true">→</span></button>
-        <p class="welcome-footer">Zaten hesabın var mı? <strong>Giriş yap</strong></p>
+        <button class="primary-button welcome-cta" data-go="register" type="button">Hemen başla <span aria-hidden="true">→</span></button>
+        <p class="welcome-footer">Zaten hesabın var mı? <button data-go="login" type="button">Giriş yap</button></p>
       </div>
     </section>`,
 };

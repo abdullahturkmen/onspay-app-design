@@ -242,8 +242,15 @@
   text-align: center;
 }
 
-.welcome-footer strong {
+.welcome-footer button {
+  padding: 3px 0;
+  border: 0;
+  background: none;
   color: var(--welcome-kicker);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .screen-login {
@@ -310,9 +317,28 @@
   stroke-linejoin: round;
 }
 
-.input-shell span {
+.input-shell:focus-within {
+  border-color: var(--accent);
+}
+
+.input-shell input {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 9px;
+}
+
+.input-shell input:focus {
+  outline: none;
+}
+
+.input-shell input::placeholder {
   color: var(--text-4);
-  font-size: 8px;
 }
 
 .login-options {
@@ -403,6 +429,117 @@
   background: var(--app-bg);
 }
 
+.login-history:not([hidden]) {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgb(0 0 0 / 55%);
+}
+
+.login-history-card {
+  width: min(100%, 340px);
+  max-height: 100%;
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 25%);
+  color: var(--ink);
+}
+
+.login-history-shield,
+.login-history-status {
+  display: grid;
+  flex: none;
+  place-items: center;
+}
+
+.login-history-shield {
+  --icon-size: 21px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.login-history-card h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.login-history-card p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 11px;
+}
+
+.login-history-list {
+  margin: 15px 0;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  list-style: none;
+}
+
+.login-history-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0;
+}
+
+.login-history-list li + li {
+  border-top: 1px solid var(--line);
+}
+
+.login-history-status {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--positive-bg);
+  color: var(--positive-text);
+}
+
+.login-history-status.is-failed {
+  background: color-mix(in srgb, currentColor 12%, var(--surface));
+  color: var(--login-history-failed, #b42332);
+}
+
+.device-screen[data-theme="dark"] {
+  --login-history-failed: #ff9a9f;
+}
+
+.login-history-list strong,
+.login-history-list li div > span {
+  display: block;
+}
+
+.login-history-list strong {
+  font-size: 11px;
+}
+
+.login-history-list li div > span {
+  margin-top: 3px;
+  color: var(--text-2);
+  font-size: 10px;
+}
+
+.login-history-dismiss {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.login-history-dismiss:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 .app-topbar {
   min-height: 29px;
 }
@@ -478,6 +615,31 @@
   letter-spacing: -0.8px;
 }
 
+.balance-breakdown {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  margin: 0 0 12px;
+  color: #dedede;
+  font-size: 7px;
+}
+
+.balance-breakdown > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.balance-breakdown dd {
+  margin: 0;
+  color: var(--brand-white);
+  font-size: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .balance-footer {
   position: relative;
   z-index: 1;
@@ -523,6 +685,28 @@
   color: #d5ffe6;
   background: rgba(255, 255, 255, 0.1);
   font-size: 6px;
+}
+
+.device-screen[data-theme="light"] .balance-card {
+  color: #271209;
+  background: linear-gradient(135deg, #ff7847, var(--brand-orange));
+  box-shadow: 0 8px 18px rgba(137, 45, 13, 0.18), inset 0 0 0 1px rgba(100, 34, 13, 0.16);
+}
+
+.device-screen[data-theme="light"] .balance-card :is(.balance-label, .balance-breakdown, .balance-footer) {
+  color: #431d10;
+}
+
+.device-screen[data-theme="light"] .balance-card :is(.balance-breakdown dd, .copy-button, .balance-change) {
+  color: #271209;
+}
+
+.device-screen[data-theme="light"] .balance-card :is(.copy-button, .balance-change) {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.device-screen[data-theme="light"] .balance-card .copy-button:hover {
+  background: rgba(255, 255, 255, 0.38);
 }
 
 .quick-actions {

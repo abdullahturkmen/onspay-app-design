@@ -30,10 +30,7 @@ export default {
   content: `
     <section class="screen-flow">
       ${subHeader("Ödemeler", "home", roundButton("search", "Ara"))}
-      <button class="qr-banner" data-toast="${comingSoonMessage}" type="button">
-        <span class="qr-icon">${icon("qr")}</span>
-        <span><strong>QR ile hızlı öde</strong><span>Kodu okut, saniyeler içinde öde</span></span>
-      </button>
+      
       <div class="section-heading"><strong>Kategoriler</strong></div>
       <div class="category-grid">
         ${categories

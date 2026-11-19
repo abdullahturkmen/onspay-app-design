@@ -6,6 +6,7 @@ const paths = {
   incoming: '<path d="M14 6 6 14M12.5 14H6V7.5"/>',
   shield: '<path d="M10 2.8 16 5v4.6c0 3.5-2.4 6-6 7.6-3.6-1.6-6-4.1-6-7.6V5l6-2.2Z"/><path d="m7.5 10 1.8 1.8L12.8 8"/>',
   check: '<path d="m4.5 10.5 3.5 3.5 7.5-8"/>',
+  close: '<path d="m5 5 10 10M15 5 5 15"/>',
   card: '<rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M2.5 8.5h15M5.5 12.5h3"/>',
   receipt: '<path d="M5 3h10v14l-2.5-1.5L10 17l-2.5-1.5L5 17V3Z"/><path d="M7.5 7.5h5M7.5 10.5h5"/>',
   list: '<path d="M4 5.5h12M4 10h12M4 14.5h8"/>',

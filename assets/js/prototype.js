@@ -65,19 +65,19 @@ function createPrototype() {
   }
 
   // softExit tanımlı ekranlardan (ör. splash) çıkarken tarayıcı eski ekranı yeni ekrana yumuşakça soldurur
-  function renderScreen(index, updateHistory = true) {
+  function renderScreen(index, updateHistory = true, state) {
     window.clearTimeout(autoNextTimer);
     const leavingScreen = hasRendered ? screens[currentIndex] : null;
     hasRendered = true;
 
     if (leavingScreen?.softExit && document.startViewTransition && !prefersReducedMotion.matches) {
-      document.startViewTransition(() => applyScreen(index, updateHistory));
+      document.startViewTransition(() => applyScreen(index, updateHistory, state));
     } else {
-      applyScreen(index, updateHistory);
+      applyScreen(index, updateHistory, state);
     }
   }
 
-  function applyScreen(index, updateHistory) {
+  function applyScreen(index, updateHistory, state) {
     currentIndex = (index + screens.length) % screens.length;
     const screen = screens[currentIndex];
 
@@ -89,7 +89,7 @@ function createPrototype() {
     // onMount tanımlı ekranlar (ör. hikaye akışı) çizildikten sonra kendi davranışını bağlar; ayrılırken temizlenir
     unmountScreen?.();
     appScreen.innerHTML = screen.content;
-    unmountScreen = screen.onMount?.(appScreen) ?? null;
+    unmountScreen = screen.onMount?.(appScreen, state) ?? null;
     document.querySelector(".device-screen").dataset.chrome = screen.chrome ?? "default";
     document.querySelector("#current-screen-title").textContent = screen.title;
     document.querySelector("#detail-index").textContent = `${pad(currentIndex + 1)} / ${pad(screens.length)}`;
@@ -112,9 +112,13 @@ function createPrototype() {
     }
   }
 
-  function goToScreen(id) {
+  function goToScreen(id, state) {
     const index = screens.findIndex((screen) => screen.id === id);
-    if (index !== -1) renderScreen(index);
+    if (index !== -1) renderScreen(index, true, state);
+  }
+
+  function followScreenAction(action) {
+    goToScreen(action.dataset.go, { showLoginHistory: action.hasAttribute("data-show-login-history") });
   }
 
   function showToast(message) {
@@ -130,9 +134,9 @@ function createPrototype() {
   });
 
   appScreen.addEventListener("click", (event) => {
-    const navigationButton = event.target.closest("[data-go]");
+    const navigationButton = event.target.closest("[data-go]:not(form)");
     if (navigationButton) {
-      goToScreen(navigationButton.dataset.go);
+      followScreenAction(navigationButton);
       return;
     }
 
@@ -141,6 +145,12 @@ function createPrototype() {
 
     const copyButton = event.target.closest("[data-copy]");
     if (copyButton) copyToClipboard(copyButton);
+  });
+
+  appScreen.addEventListener("submit", (event) => {
+    if (event.defaultPrevented || !event.target.matches("form[data-go]")) return;
+    event.preventDefault();
+    followScreenAction(event.target);
   });
 
   // Panoya kopyalar; başarılı olursa düğmedeki ikon kısa süre onay işaretine döner (yazı korunur)
@@ -214,7 +224,9 @@ function createPrototype() {
   });
 
   document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented || event.target.closest('[aria-modal="true"]')) return;
     if (event.key === "Escape") deviceStage.classList.remove("is-fullscreen");
+    if (event.target.matches("input, textarea, select") || event.target.isContentEditable) return;
     if (event.key === "ArrowLeft" && currentIndex > 0) renderScreen(currentIndex - 1);
     if (event.key === "ArrowRight" && currentIndex < screens.length - 1) renderScreen(currentIndex + 1);
   });

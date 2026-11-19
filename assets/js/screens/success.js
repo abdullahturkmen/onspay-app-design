@@ -24,7 +24,7 @@ export default {
       </div>
       <div class="success-actions">
         <button class="primary-button success-home" data-go="home" type="button">Ana sayfaya dön <span aria-hidden="true">→</span></button>
-        <button class="primary-button success-share" data-toast="Makbuz paylaşımı prototipte gösterim amaçlıdır." type="button">Makbuzu paylaş</button>
+        <button class="primary-button success-share" data-toast="Makbuz paylaşımı prototipte gösterim amaçlıdır." type="button">Dekontu paylaş</button>
       </div>
     </section>`,
 };
