@@ -1,0 +1,341 @@
+/* Hoş geldin ekranı: hikaye tarzı tanıtım akışı (bkz. components/story.js). Renkler --welcome-* değişkenlerinden gelir. */
+
+.story-bars {
+  display: flex;
+  gap: 4px;
+  margin: -4px 0 12px;
+}
+
+.story-bars i {
+  position: relative;
+  flex: 1;
+  height: 2.5px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--welcome-track);
+}
+
+.story-bars i::after {
+  position: absolute;
+  inset: 0;
+  background: var(--welcome-fill);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.story-bars i.is-done::after {
+  transform: scaleX(1);
+}
+
+.story-bars i.is-active::after {
+  animation: story-fill var(--story-duration, 4200ms) linear forwards;
+}
+
+.screen-welcome.is-paused .story-bars i.is-active::after {
+  animation-play-state: paused;
+}
+
+.story-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin-top: 4px;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.story-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(28px);
+  transition: opacity 450ms ease, transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 450ms;
+}
+
+.story-slide.is-before {
+  transform: translateX(-28px);
+}
+
+.story-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.story-tap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.story-tap-prev {
+  left: 0;
+  width: 34%;
+}
+
+.story-tap-next {
+  right: 0;
+  width: 66%;
+}
+
+.story-tap:focus-visible {
+  outline: 2px solid var(--welcome-kicker);
+  outline-offset: -2px;
+}
+
+.story-actions {
+  padding-top: 14px;
+}
+
+.story-actions .welcome-cta {
+  margin-top: 0;
+}
+
+/* Fareye göre kartın eğilmesi ve paraların hafifçe kayması (--tilt-x/y: -1..1) */
+.floating-coin {
+  transition: transform 180ms ease-out;
+  transform: translate(calc(var(--tilt-x, 0) * 7px), calc(var(--tilt-y, 0) * 7px));
+}
+
+.sparkle {
+  transition: transform 180ms ease-out;
+  transform: translate(calc(var(--tilt-x, 0) * -5px), calc(var(--tilt-y, 0) * -5px));
+}
+
+/* Her kare görününce içerik sırayla belirir */
+.story-slide.is-active .welcome-copy > * {
+  animation: story-rise 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.story-slide.is-active .welcome-copy > :nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.story-slide.is-active .welcome-copy > :nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.story-slide.is-active .spend-card,
+.story-slide.is-active .send-scene {
+  animation: story-pop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* 2. kare: harcama özeti */
+.spend-card {
+  position: relative;
+  z-index: 1;
+  width: 176px;
+  padding: 12px;
+  border: 1px solid var(--welcome-line);
+  border-radius: 14px;
+  background: var(--welcome-panel);
+  box-shadow: var(--welcome-panel-shadow);
+}
+
+.spend-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--welcome-ink-3);
+  font-size: 6.5px;
+}
+
+.spend-head em {
+  color: var(--welcome-positive);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.spend-card strong {
+  display: block;
+  margin: 5px 0 10px;
+  color: var(--welcome-ink);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.spend-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 48px;
+}
+
+.spend-bars span {
+  flex: 1;
+  height: var(--h);
+  border-radius: 3px;
+  background: var(--welcome-bar);
+  transform-origin: bottom;
+}
+
+.spend-bars .is-peak {
+  background: var(--accent);
+}
+
+.story-slide.is-active .spend-bars span {
+  animation: story-grow 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 60ms + 150ms);
+}
+
+.spend-tags {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.spend-tags i {
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--welcome-line-soft);
+  color: var(--welcome-ink-2);
+  font-size: 6px;
+  font-style: normal;
+}
+
+/* 3. kare: para gönderme */
+.send-scene {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.send-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.story-avatar {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--welcome-line);
+  border-radius: 50%;
+  background: var(--welcome-avatar);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.story-avatar.is-to {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(255, 90, 35, 0.18);
+  color: var(--on-accent);
+}
+
+.send-track {
+  position: relative;
+  width: 74px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--welcome-dash) 0 4px, transparent 4px 8px);
+}
+
+.send-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  opacity: 0;
+}
+
+.story-slide.is-active .send-dot {
+  animation: send-travel 1.8s ease-in-out infinite;
+}
+
+.send-pill {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 9px 16px;
+  border: 1px solid var(--welcome-line);
+  border-radius: 14px;
+  background: var(--welcome-panel);
+}
+
+.send-pill strong {
+  color: var(--welcome-ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.send-pill span {
+  color: var(--welcome-kicker);
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+@keyframes story-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes story-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes story-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes story-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes send-travel {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  15%,
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(66px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-slide,
+  .story-slide * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

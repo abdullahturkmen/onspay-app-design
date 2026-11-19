@@ -31,7 +31,6 @@ export default {
       <div class="input-shell">${icon("edit")}<span>Açıklama ekle (isteğe bağlı)</span></div>
       <div class="info-card surface-card">
         <div class="info-row"><span>${icon("bolt")} Gönderim türü</span><strong>Anında</strong></div>
-        <div class="info-row"><span>Gönderim ücreti</span><strong class="is-free">Ücretsiz</strong></div>
       </div>
       <div class="cta-area">
         <button class="primary-button button-accent" data-go="confirm" type="button">Devam et ${icon("arrow")}</button>

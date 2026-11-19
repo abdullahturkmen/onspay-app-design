@@ -23,6 +23,24 @@
   --card-end: #0f0f11;
   --card-edge: rgba(255, 255, 255, 0.1);
 
+  --welcome-bg: #202020;
+  --welcome-ink: #fff;
+  --welcome-ink-2: #d6d6d6;
+  --welcome-ink-3: #b8b8b8;
+  --welcome-line: rgba(255, 255, 255, 0.16);
+  --welcome-line-soft: rgba(255, 255, 255, 0.12);
+  --welcome-dash: rgba(255, 255, 255, 0.4);
+  --welcome-panel: rgba(255, 255, 255, 0.07);
+  --welcome-panel-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+  --welcome-bar: rgba(255, 255, 255, 0.2);
+  --welcome-track: rgba(255, 255, 255, 0.26);
+  --welcome-fill: #fff;
+  --welcome-kicker: #ffb59c;
+  --welcome-highlight: #ffb59c;
+  --welcome-positive: #7ee2b8;
+  --welcome-avatar: #3a3a40;
+  --welcome-card-shadow: 0 14px 35px rgba(0, 0, 0, 0.34);
+
   /* Turuncu aynı kalır; yüzeye göre hesaplanan türevleri koyu zemin için yeniden üretilir */
   --accent-dark: color-mix(in srgb, var(--accent) 75%, #fff);
   --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--surface));

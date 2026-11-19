@@ -115,10 +115,6 @@
   font-size: 7px;
 }
 
-.info-row strong.is-free {
-  color: var(--positive-text);
-}
-
 .confirm-hero {
   display: grid;
   justify-items: center;

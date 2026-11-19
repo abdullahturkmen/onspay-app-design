@@ -34,6 +34,25 @@
   --card-start: #2b2b2b;
   --card-end: #000;
   --card-edge: transparent;
+
+  /* Hoş geldin ekranı da temaya uyar (açık değerler). Koyu değerler theme.css içinde. */
+  --welcome-bg: #fff;
+  --welcome-ink: #17171a;
+  --welcome-ink-2: #52525b;
+  --welcome-ink-3: #71717a;
+  --welcome-line: rgba(0, 0, 0, 0.1);
+  --welcome-line-soft: rgba(0, 0, 0, 0.07);
+  --welcome-dash: rgba(0, 0, 0, 0.28);
+  --welcome-panel: #f6f6f8;
+  --welcome-panel-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  --welcome-bar: rgba(0, 0, 0, 0.12);
+  --welcome-track: rgba(0, 0, 0, 0.12);
+  --welcome-fill: #17171a;
+  --welcome-kicker: #9e3816;
+  --welcome-highlight: #ff5a23;
+  --welcome-positive: #1f8c62;
+  --welcome-avatar: #1f1f23;
+  --welcome-card-shadow: 0 14px 30px rgba(255, 90, 35, 0.3);
 }
 
 * {

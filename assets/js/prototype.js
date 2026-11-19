@@ -27,6 +27,7 @@ function createPrototype() {
   const toast = document.querySelector("#toast");
   let currentIndex = 0;
   let hasRendered = false;
+  let unmountScreen = null;
   let toastTimer;
   let autoNextTimer;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -85,7 +86,10 @@ function createPrototype() {
       autoNextTimer = window.setTimeout(() => goToScreen(screen.autoNext.to), screen.autoNext.after);
     }
 
+    // onMount tanımlı ekranlar (ör. hikaye akışı) çizildikten sonra kendi davranışını bağlar; ayrılırken temizlenir
+    unmountScreen?.();
     appScreen.innerHTML = screen.content;
+    unmountScreen = screen.onMount?.(appScreen) ?? null;
     document.querySelector(".device-screen").dataset.chrome = screen.chrome ?? "default";
     document.querySelector("#current-screen-title").textContent = screen.title;
     document.querySelector("#detail-index").textContent = `${pad(currentIndex + 1)} / ${pad(screens.length)}`;

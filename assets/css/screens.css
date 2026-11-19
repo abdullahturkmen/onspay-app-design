@@ -7,13 +7,13 @@
   flex-direction: column;
 }
 
-/* Hoş geldin ekranı temadan bağımsız olarak koyu tasarlanmıştır */
+/* Hoş geldin ekranı temaya göre değişir: açıkta beyaz, koyuda siyah zemin */
 .screen-welcome {
   justify-content: space-between;
   padding: 14px 21px 22px;
   overflow: hidden;
-  color: var(--brand-white);
-  background: var(--surface-dark);
+  color: var(--welcome-ink);
+  background: var(--welcome-bg);
 }
 
 .welcome-topbar,
@@ -38,7 +38,7 @@
 }
 
 .welcome-tag {
-  color: #c9c9c9;
+  color: var(--welcome-ink-3);
   font-size: 7px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -57,14 +57,14 @@
   position: absolute;
   width: 191px;
   height: 191px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--welcome-line);
   border-radius: 50%;
 }
 
 .hero-orbit::before,
 .hero-orbit::after {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--welcome-line-soft);
   border-radius: 50%;
   content: "";
 }
@@ -87,8 +87,9 @@
   border-radius: 14px;
   color: var(--on-accent);
   background: linear-gradient(135deg, #ffb59c, #ff5a23 70%);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.34);
-  transform: rotate(-9deg);
+  box-shadow: var(--welcome-card-shadow);
+  transform: rotate(-9deg) perspective(520px) rotateX(calc(var(--tilt-y, 0) * -14deg)) rotateY(calc(var(--tilt-x, 0) * 16deg));
+  transition: transform 180ms ease-out;
 }
 
 .hero-card::before {
@@ -158,7 +159,7 @@
 
 .sparkle {
   position: absolute;
-  color: #ffb59c;
+  color: var(--welcome-highlight);
   font-size: 17px;
 }
 
@@ -179,7 +180,7 @@
 
 .welcome-kicker {
   margin: 0 0 8px;
-  color: #ffb59c;
+  color: var(--welcome-kicker);
   font-size: 7px;
   font-weight: 600;
   letter-spacing: 1.2px;
@@ -196,12 +197,12 @@
 }
 
 .welcome-copy h2 span {
-  color: #ffb59c;
+  color: var(--welcome-highlight);
 }
 
 .welcome-copy > p {
   margin: 11px 0 0;
-  color: #d6d6d6;
+  color: var(--welcome-ink-2);
   font-size: 9px;
   line-height: 1.65;
 }
@@ -236,13 +237,13 @@
 
 .welcome-footer {
   margin: 10px 0 0;
-  color: #b8b8b8;
+  color: var(--welcome-ink-3);
   font-size: 7px;
   text-align: center;
 }
 
 .welcome-footer strong {
-  color: #ffb59c;
+  color: var(--welcome-kicker);
 }
 
 .screen-login {

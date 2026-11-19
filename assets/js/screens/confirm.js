@@ -9,7 +9,7 @@ export default {
   subtitle: "İşlem özeti",
   detailTitle: "Göndermeden önce kontrol",
   description:
-    "Alıcı, tutar ve ücret bilgisi tek bakışta özetlenir. Güvenlik notu kullanıcıya işlemin doğrulanacağını hatırlatır.",
+    "Alıcı, tutar ve gönderim türü tek bakışta özetlenir. Güvenlik notu kullanıcıya işlemin doğrulanacağını hatırlatır.",
   flow: "Para gönderme · 2/3",
   interaction: "Onayla ile işlem tamamlanır, Vazgeç ile geri dönülür",
   icon: "shield",
@@ -24,7 +24,6 @@ export default {
       </div>
       <div class="receipt-card">
         <div class="receipt-row"><span>Gönderim türü</span><strong>Anında</strong></div>
-        <div class="receipt-row"><span>Gönderim ücreti</span><strong>Ücretsiz</strong></div>
         <div class="receipt-row"><span>Kaynak hesap</span><strong>Onspay Bakiye</strong></div>
         <div class="receipt-row total"><span>Toplam tutar</span><strong>₺ 1.250,00</strong></div>
       </div>
