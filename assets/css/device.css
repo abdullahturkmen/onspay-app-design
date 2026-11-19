@@ -1,0 +1,364 @@
+.icon-button,
+.flow-button {
+  display: grid;
+  place-items: center;
+  border: 1px solid #e6e7eb;
+  background: #fff;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.icon-button {
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  color: #656974;
+}
+
+.icon-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.device-stage {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 23px 15px 12px;
+}
+
+/* Telefon her zaman 390:844 oranında sabit boyutta çizilir; ekrana sığması için device-fit.js zoom uygular. */
+.device {
+  width: var(--device-width);
+  height: calc(var(--device-width) * 844 / 390);
+  flex: none;
+}
+
+.device-frame {
+  width: 100%;
+  height: 100%;
+  padding: 7px;
+  border: 1px solid #aaaab2;
+  border-radius: 39px;
+  background: linear-gradient(145deg, #3e3d45, #111116 30%, #292830 80%, #101014);
+  box-shadow: 0 28px 55px rgba(27, 24, 42, 0.2), 0 8px 16px rgba(30, 27, 44, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.52);
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #fff;
+}
+
+.phone-status-bar {
+  position: relative;
+  z-index: 2;
+  height: 29px;
+  flex: 0 0 29px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 17px 0;
+  background: #fff;
+  color: #24252b;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-icons svg {
+  width: 11px;
+  height: 10px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.battery {
+  width: 13px;
+  height: 7px;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  border: 1px solid #2a2b30;
+  border-radius: 2px;
+}
+
+.battery::after {
+  width: 1px;
+  height: 3px;
+  margin-left: 1px;
+  background: #2a2b30;
+  content: "";
+}
+
+.battery span {
+  width: 7px;
+  height: 3px;
+  border-radius: 1px;
+  background: #2a2b30;
+}
+
+.app-screen {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.app-screen::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-home-indicator {
+  height: 18px;
+  flex: 0 0 18px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+.phone-home-indicator span {
+  width: 76px;
+  height: 3px;
+  border-radius: 3px;
+  background: #202127;
+}
+
+.stage-caption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 13px;
+  color: #9599a2;
+  font-size: 9px;
+}
+
+.caption-device-icon {
+  color: #888b95;
+  font-size: 13px;
+}
+
+.caption-separator {
+  color: #c3c5cc;
+}
+
+.prototype-controls {
+  height: 61px;
+  flex: 0 0 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  border-top: 1px solid rgba(228, 230, 234, 0.82);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.flow-button {
+  width: 29px;
+  height: 29px;
+  border-radius: 8px;
+  color: #5f626c;
+}
+
+.flow-button:disabled {
+  color: #c4c6cd;
+  background: #fafafa;
+  cursor: default;
+}
+
+.flow-progress {
+  min-width: 42px;
+  color: #535660;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.flow-progress i {
+  padding: 0 2px;
+  color: #c5c6cc;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.keyboard-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 11px;
+  color: #a4a7ae;
+  font-size: 8px;
+}
+
+kbd {
+  min-width: 15px;
+  padding: 2px 3px;
+  border: 1px solid #e2e4e8;
+  border-radius: 4px;
+  background: #fff;
+  color: #82858e;
+  font-family: inherit;
+  font-size: 8px;
+  text-align: center;
+}
+
+.details-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 21px 17px;
+  border-left: 1px solid var(--line);
+  background: #fff;
+}
+
+.panel-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-index {
+  color: #b0b3ba;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-content {
+  margin-top: 68px;
+}
+
+.detail-icon {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent-line);
+  border-radius: 9px;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  font-size: 13px;
+  --icon-size: 15px;
+}
+
+.detail-content h2 {
+  margin: 17px 0 9px;
+  color: #292a32;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.45px;
+}
+
+.detail-content > p {
+  margin: 0;
+  color: #858892;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.detail-divider {
+  height: 1px;
+  margin: 24px 0 17px;
+  background: #eff0f2;
+}
+
+.detail-meta {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.meta-label {
+  color: #a6a8af;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.meta-value {
+  color: #555862;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.interaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.interaction > span:first-child {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #53c994;
+}
+
+.panel-tip {
+  display: flex;
+  gap: 9px;
+  margin-top: auto;
+  padding: 12px 10px;
+  border-radius: 8px;
+  background: #f7f8fa;
+}
+
+.tip-mark {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #aeb1ba;
+  border-radius: 50%;
+  color: #8b8e97;
+  font-family: serif;
+  font-size: 9px;
+  font-style: italic;
+}
+
+.panel-tip p {
+  margin: 0;
+  color: #858892;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.toast {
+  position: fixed;
+  z-index: 5;
+  right: 24px;
+  bottom: 22px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(26, 22, 43, 0.12);
+  color: #4b4d57;
+  font-size: 11px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(7px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

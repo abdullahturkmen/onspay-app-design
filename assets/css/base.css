@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+  --device-width: 282px;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Poppins", "Plus Jakarta Sans", system-ui, sans-serif;
+  --brand-orange: #ff5a23;
+  --brand-black: #000;
+  --brand-white: #fff;
+  --ink: var(--brand-black);
+  --surface: var(--brand-white);
+  --surface-dark: #202020;
+  --muted: #8d929c;
+  --line: #eceef1;
+  --canvas: #f5f6f8;
+  --accent: var(--brand-orange);
+  --accent-dark: color-mix(in srgb, var(--accent) 62%, var(--brand-black));
+  --accent-soft: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  --accent-line: color-mix(in srgb, var(--accent) 24%, var(--surface));
+  --accent-light: color-mix(in srgb, var(--accent) 45%, var(--surface));
+  --on-accent: var(--brand-black);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+/* Tarayıcı varsayılanı olan 700 yerine, ağırlığı belirtilmemiş başlık ve vurgular da 600 olsun */
+h1,
+h2,
+h3,
+strong,
+b {
+  font-weight: 600;
+}
+
+/* Başlık ve marka metinleri Poppins; sayılar dahil geri kalan her şey gövde fontunu (Plus Jakarta Sans) kullanır. */
+.brand,
+.project-heading h1,
+.detail-content h2,
+.tab-header h2,
+.sub-header h2,
+.mini-brand,
+.welcome-copy h2,
+.login-heading h2,
+.greeting h2,
+.success-heading,
+.section-heading strong,
+.profile-card strong,
+.confirm-hero strong,
+.qr-banner strong,
+.person-avatar {
+  font-family: var(--font-display);
+}
+
+.workspace {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
