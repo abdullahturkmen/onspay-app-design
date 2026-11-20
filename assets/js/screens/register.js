@@ -60,7 +60,6 @@ export default {
       ${brandHeader('')}
       <button class="register-back" type="button" data-go="welcome">${icon("back")} Geri</button>
       <div class="register-heading">
-        <span class="register-icon">${icon("userPlus")}</span>
         <h2>Hesabını oluştur</h2>
         <p>Cep telefonu numaranı gir ve giriş şifreni belirle.</p>
       </div>

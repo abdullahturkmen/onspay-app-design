@@ -60,7 +60,7 @@ export default {
           <option value="other">Diğer</option>
         </select>
       </label>
-      <div class="input-shell">${icon("edit")}<span>Açıklama ekle (isteğe bağlı)</span></div>
+      <div class="input-shell transfer-description">${icon("edit")}<span>Açıklama ekle (isteğe bağlı)</span></div>
       <div class="cta-area">
         <button class="primary-button button-accent" data-go="confirm" type="button">Devam et ${icon("arrow")}</button>
         <p class="transfer-demo-note">Onay ekranı örnek işlem bilgilerini gösterir.</p>

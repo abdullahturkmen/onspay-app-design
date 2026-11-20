@@ -3,7 +3,7 @@
   --device-width: 282px;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-display: "Poppins", "Plus Jakarta Sans", system-ui, sans-serif;
-  --brand-orange: #ff5a23;
+  --brand-orange: #FF5A23;
   --brand-black: #000;
   --brand-white: #fff;
   --ink: var(--brand-black);
@@ -18,6 +18,9 @@
   --accent-line: color-mix(in srgb, var(--accent) 24%, var(--surface));
   --accent-light: color-mix(in srgb, var(--accent) 45%, var(--surface));
   --on-accent: var(--brand-black);
+  --accent-button: var(--accent);
+  --on-accent-button: var(--brand-white);
+  --dark-button: #2E3138;
 
   /* Telefon içi tema değişkenleri (açık değerler). Koyu değerler theme.css içinde. */
   --app-bg: #fafafa;
@@ -48,7 +51,7 @@
   --welcome-bar: rgba(0, 0, 0, 0.12);
   --welcome-track: rgba(0, 0, 0, 0.12);
   --welcome-fill: #17171a;
-  --welcome-kicker: #9e3816;
+  --welcome-kicker: var(--accent);
   --welcome-highlight: #ff5a23;
   --welcome-positive: #1f8c62;
   --welcome-avatar: #1f1f23;

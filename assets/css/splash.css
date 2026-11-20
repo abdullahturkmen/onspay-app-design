@@ -11,13 +11,8 @@
   padding: 0 0 36px;
   overflow: hidden;
   border: 0;
-  background: radial-gradient(
-    circle at 50% 45%,
-    color-mix(in srgb, var(--accent) 86%, #fff) 0,
-    var(--accent) 52%,
-    color-mix(in srgb, var(--accent) 88%, #000) 100%
-  );
-  color: var(--on-accent);
+  background: var(--accent);
+  color: var(--brand-white);
   cursor: pointer;
 }
 

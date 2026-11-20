@@ -220,6 +220,10 @@
   cursor: pointer;
 }
 
+.transfer-description {
+  font-size: 9px;
+}
+
 .transfer-demo-note {
   margin: 8px 0 0;
   color: var(--text-3);
@@ -523,8 +527,6 @@
   padding: 12px;
   border: 0;
   border-radius: 13px;
-  background: var(--accent);
-  color: var(--on-accent);
   text-align: left;
   cursor: pointer;
 }

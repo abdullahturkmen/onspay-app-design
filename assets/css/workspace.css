@@ -310,7 +310,22 @@
 }
 
 .screen-thumb.thumb-success {
-  background: linear-gradient(180deg, #f0fff7 0 100%);
+  background: var(--result-thumb-bg, #f0fff7);
+}
+
+.screen-link:is([data-screen="transaction-error"], [data-screen="app-unavailable"]) {
+  --result-thumb-bg: #fff1f2;
+  --result-thumb-dot: #b42332;
+}
+
+.screen-link:is([data-screen="transaction-warning"], [data-screen="app-offline"], [data-screen="app-invalid-link"]) {
+  --result-thumb-bg: #fff6e5;
+  --result-thumb-dot: #a36108;
+}
+
+.screen-link[data-screen="transaction-pending"] {
+  --result-thumb-bg: #edf4ff;
+  --result-thumb-dot: #3261b5;
 }
 
 .screen-thumb.thumb-success::before {
@@ -319,7 +334,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #5bd99d;
+  background: var(--result-thumb-dot, #5bd99d);
 }
 
 .screen-thumb.thumb-success::after {

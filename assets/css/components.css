@@ -134,9 +134,14 @@
   background: var(--surface);
 }
 
-.button-accent {
-  color: var(--on-accent);
-  background: var(--accent);
+:is(.button-accent, .welcome-cta, .login-submit, .login-history-dismiss, .success-home, .qr-banner) {
+  color: var(--on-accent-button);
+  background: var(--accent-button);
+}
+
+.button-dark {
+  color: var(--brand-white);
+  background: var(--dark-button);
 }
 
 .primary-button .icon {
